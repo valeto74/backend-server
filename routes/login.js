@@ -21,9 +21,9 @@ const client = new OAuth2Client(CLIENT_ID);
 async function verify(token) {
     const ticket = await client.verifyIdToken({
         idToken: token,
-        audience: CLIENT_ID, // Specify the CLIENT_ID of the app that accesses the backend
-        // Or, if multiple clients access the backend:
-        //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
+        audience: CLIENT_ID // Specify the CLIENT_ID of the app that accesses the backend
+            // Or, if multiple clients access the backend:
+            //[CLIENT_ID_1, CLIENT_ID_2, CLIENT_ID_3]
     });
 
     const payload = ticket.getPayload();
@@ -36,7 +36,7 @@ async function verify(token) {
         email: payload.email,
         img: payload.picture,
         google: true
-    }
+    };
 }
 
 app.post('/google', async(req, res) => {
@@ -111,12 +111,12 @@ app.post('/google', async(req, res) => {
 
 
 
-
     // return res.status(200).json({
     //     ok: true,
     //     mensaje: 'OK!!!',
     //     googleUser: googleUser
     // });
+
 
 
 });
